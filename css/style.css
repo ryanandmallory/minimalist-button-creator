@@ -1,0 +1,871 @@
+* {
+    box-sizing: border-box;
+}
+
+textarea, select, input, button { outline: none; }
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.mt-2 { margin-top: 2rem; }
+.mb-1 { margin-bottom: 1rem; }
+.mb-2 { margin-bottom: 1.5rem; }
+
+.scroll-container {
+    display: none;
+    position: relative;
+    justify-content: center;
+}
+
+.scroll-display {
+    height: auto;
+    background: white;
+    width: 15%;
+    margin: 0 auto;
+    padding-bottom: 0.8%;
+    border-radius: 10px;
+    position: absolute;
+    top: 13px;
+    z-index: 100;
+    opacity: 0.65;
+    border-bottom: 3px solid #e6e6e6;
+    animation: scroll-animate 2s ease-in;
+}
+
+body {
+    margin: 0;
+}
+
+.modal {
+    position: relative;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    z-index: 200;
+    overflow: auto;
+    left: 0;
+    top: 0;
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.75); /* Black w/ opacity */
+}
+
+code {
+    position: relative;
+    width: 60%;
+    height: 75%;
+    background: white;
+    margin: auto;
+    padding: 30px;
+    font-size: 20px;
+    line-height: 1.6;
+    border-radius: 10px;
+    -webkit-box-shadow: 2px 2px 5px 0px rgba(56,54,56,1);
+    -moz-box-shadow: 2px 2px 5px 0px rgba(56,54,56,1);
+    box-shadow: 2px 2px 5px 0px rgba(56,54,56,1);
+    overflow-y: scroll;
+}
+
+code h3 {
+    margin-top: 0;
+}
+
+.close {
+    font-family: 'Open Sans', sans-serif;
+    color:  rgba(0,0,0,0.75);
+    position: absolute;
+    right: 30px;
+    top: 30px;
+    font-size: 20px;
+    border-radius: 50%;
+    background-color: #fff;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    padding-top: 2px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.7s
+}
+
+.close:hover {
+    opacity: .75;
+}
+
+.copied-message {
+    position: absolute;
+    align-items: flex-start;
+    top: 0;
+    background: green;
+    display: block;
+    width: 100%;
+    margin: 0;
+    padding-left: 32px;
+    left: 0;
+    color: #fff;
+}
+
+.container {
+    font-family: 'Open Sans', sans-serif;
+    color: #938b8d;
+    width: 1200px;
+    margin: 2.5% auto;
+    height: 90vh;
+}
+
+.container-content {
+    width: 100%;
+    height: 100%;
+}
+
+header {
+    height: 6vh;
+    margin-bottom: 1%;
+}
+
+h1 {
+    font-size: 1.25rem;
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.btn-display {
+    align-items: center;
+    background: #fff url('../img/grid.jpg') no-repeat center;
+    background-size: 100% 100%;
+    display: flex;
+    height: 25vh;
+    justify-content: center;
+}
+
+.main-btn, .get-code-btn {
+  align-items: center;
+  background: #fff;
+  border-color: #938b8d;
+  border-style: solid;
+  border-width: 2px;
+  color: #938b8d;
+  cursor: pointer;
+  display: flex;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.2rem;
+  justify-content: center;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: 0.7s;
+}
+
+.main-btn:hover {
+    opacity: 0.7;
+}
+
+.main-btn:active, .main-btn:visited { 
+    color: #938b8d; 
+}
+
+.grid {
+    min-width: 100%;
+    width: 100%;
+}
+
+/* SCROLL PANEL */
+
+@keyframes scroll-animate {
+    0% { opacity: 0;} 
+    100% { opacity: 0.65; } 
+}
+
+.scroll-display p {
+    text-align: center;
+    font-size: 1.5rem;
+    margin: 0;
+    padding: 0;
+    text-transform: uppercase
+}
+
+i.fas.fa-chevron-circle-down {
+    text-align: center;
+    display: block;
+}
+
+/* BUTTON DISPLAY */
+
+.btn-controls-display {
+    border-radius: 5px;
+    height: 40vh;
+    margin-top: 2.5%;
+    padding: 0 3%;
+    overflow-y: scroll;
+    background: #F4F0F0;
+}
+
+h2 {
+    font-size: 1.75rem;
+    font-weight: 400;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+.left-col, .right-col {
+    float: left;
+    width: 50%;
+}
+
+h3 {
+    font-size: 1.35rem;
+    font-weight: 400;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+/* TOGGLE DISPLAY */
+
+.colors-headline {
+    float: left;
+    width: 78%;
+}
+
+.hover-switch {
+    align-items: center;
+    display: flex;
+    height: 30px;
+    float: right;
+    margin-top: 2.5%;
+    width: 16%;
+}
+
+p.apply-on-hover {
+    display: inline-block;
+    margin-left: 10px;
+    font-size: 0.8em;
+    text-transform: uppercase;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 25px;
+}
+
+.switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 15px;   
+    width: 15px;
+    left: 8px;
+    bottom: 5px;
+    background-color: white;
+    -webkit-transition: .4s;
+        transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: #938b8d;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #938b8d;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(30px);
+    -ms-transform: translateX(30px);
+    transform: translateX(30px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 25px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+/* BACKGROUND COLORS */
+
+.background-colors, .text-colors, .border-colors{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 100%;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.background-color, .text-color, .border-color {
+    background: #65727a;
+    border: 2px solid #e6e6e6;
+    height: 50px;
+    margin-bottom: 10px;
+    width: 85px;
+}
+
+.hex-value {
+    margin-bottom: 15px;
+    display: inline-block;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: #938b8d;
+  }
+  ::-moz-placeholder { /* Firefox 19+ */
+    color: #938b8d;
+  }
+  :-ms-input-placeholder { /* IE 10+ */
+    color: #938b8d;
+  }
+  :-moz-placeholder { /* Firefox 18- */
+    color: #938b8d;
+  }
+
+.font-family-value, .text-content-value, .button-class-value  {
+    background: none;
+    border: none;
+    border-bottom: 2px solid #938b8d;
+    color: #938b8d;
+    font-size: 1rem;
+    padding: 3% 5%;
+    text-transform: uppercase;
+}
+
+.background-value, .text-value, .border-value {
+    border-radius: 100%;
+    width: 25px;
+    height: 25px;
+}
+
+/* TEXT AND BORDER COLORS */
+
+.left-section {
+    float: left;
+    width: 50%;
+    margin-left: 8.5%;
+}
+
+.right-section {
+    margin-left: 8.5%;
+    float: left;
+    width: 33%;
+}
+
+/* SLIDERS */
+.sliders {
+    display: flex;
+    justify-content: center;
+    width: 33.3%;
+    float: left;
+    margin-top: 1%;
+}
+
+.no-left-margin{
+    margin-left: 0 !important;
+}
+
+.sliders > label{
+    font-size: 1.35rem;
+    text-align: center;
+    text-transform: uppercase;
+    width: 100%;
+}
+
+input:focus::-webkit-input-placeholder { color:transparent; }
+input:focus:-moz-placeholder { color:transparent; } /* FF 4-18 */
+input:focus::-moz-placeholder { color:transparent; } /* FF 19+ */
+input:focus:-ms-input-placeholder { color:transparent; } /* IE 10+ */
+
+input[type=range] {
+    -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+    width: 90%; /* Specific width is required for Firefox. */
+    background: transparent; /* Otherwise white in Chrome */
+  }
+  
+  input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+  }
+  
+  input[type=range]:focus {
+    outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+  }
+  
+  input[type=range]::-ms-track {
+    width: 90%;
+    cursor: pointer;
+  
+    /* Hides the slider so custom styles can be added */
+    background: transparent; 
+    border-color: transparent;
+    color: transparent;
+}
+
+/* Special styling for WebKit/Blink */
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: 1px solid #938b8d;
+    height: 24px;
+    width: 16px;
+    border-radius: 3px;
+    background: #ffffff;
+    cursor: pointer;
+    margin-top: -8px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+  }
+  
+  /* All the same stuff for Firefox */
+  input[type=range]::-moz-range-thumb {
+    border: 1px solid #000000;
+    height: 24px;
+    width: 16px;
+    border-radius: 3px;
+    background: #ffffff;
+    cursor: pointer;
+  }
+  
+  /* All the same stuff for IE */
+  input[type=range]::-ms-thumb {
+    border: 1px solid #000000;
+    height: 24px;
+    width: 16px;
+    border-radius: 3px;
+    background: #ffffff;
+    cursor: pointer;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    width: 90%;
+    height: 8.4px;
+    cursor: pointer;
+    background: #938b8d;
+    border-radius: 1.3px;
+    border: 0.2px solid #010101;
+}
+  
+  input[type=range]:focus::-webkit-slider-runnable-track {
+    background: #938b8d;
+}
+  
+input[type=range]::-moz-range-track {
+    width: 90%;
+    height: 8.4px;
+    cursor: pointer;
+    background: #938b8d;
+    border-radius: 1.3px;
+    border: 0.2px solid #010101;
+}
+  
+input[type=range]::-ms-track {
+    width: 90%;
+    height: 8.4px;
+    cursor: pointer;
+    background: transparent;
+    border-color: transparent;
+    border-width: 16px 0;
+    color: transparent;
+}
+
+input[type=range]::-ms-fill-lower {
+    background: #938b8d;
+    border: 0.2px solid #010101;
+    border-radius: 2.6px;
+}
+
+input[type=range]:focus::-ms-fill-lower {
+    background: #938b8d;
+}
+
+input[type=range]::-ms-fill-upper {
+    background: #938b8d;
+    border: 0.2px solid #010101;
+    border-radius: 2.6px;
+}
+
+input[type=range]:focus::-ms-fill-upper {
+    background: #938b8d;
+}
+
+.sliders input[type="text"] {
+    background: none;
+    border: none;
+    display: block;
+    font-size: 0.85rem;
+    text-align: center;
+    padding-top: 12px;
+    text-transform: uppercase;
+    width: 100%;
+}
+
+/* INPUT FIELDS */
+
+.input-fields {
+    float: left;
+    width: 48.5%;
+    margin-left: 1.5%;
+}
+
+.input-fields label {
+    width: 100%;
+    text-align: center;
+}
+
+.font-family-value, .text-content-value, .button-class-value {
+    width: 90%;
+    text-align: center;
+}
+
+.fine-tune {
+    width: 33%;
+    float: left;
+}
+
+.spacer {
+    margin-bottom: 4%;
+}
+
+
+select.font-menu { 
+    font-size: 1rem;
+    padding:10px;
+   -webkit-appearance: none;
+   -moz-appearance: none;
+    appearance: none;
+    margin: 10px;
+    background: none;
+    color: #938b8d;
+    outline: none;
+    border: 2px solid #938b8d;
+    text-transform: uppercase;
+    width: 90%;
+    height: 50px;
+  }
+
+  .first-tune, .last-tune {
+      margin-top: 1%;
+  }
+
+  .drop-shadow {
+      margin-top: 5px;
+  }
+
+  label.text-content-input {
+    margin-left: 22px;
+}
+
+
+/* GET CODE BUTTON */
+
+.btn-code-display {
+    margin: 2.5% 0 3%;
+    height: 8vh;
+}
+
+.get-code-btn {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    width: 25%;
+    transition: 0.7s;
+}
+
+.get-code-btn:hover {
+    background: #938b8d;
+    color: #ffffff;
+}
+
+.footer p {
+    font-size: 0.85rem;
+    margin-top: 1.5%;
+    text-align: center;
+}
+
+/* COLORS */
+
+.color-333333{ background: #333333; }
+.color-396285{ background: #396285; }
+.color-7b3f75{ background: #7b3f75; }
+.color-469677{ background: #469677; }
+.color-9a0000{ background: #9a0000; }
+.color-feca3a{ background: #feca3a; }
+.color-9c9c9c{ background: #9c9c9c; }
+.color-748899{ background: #748899; }
+.color-a86da0{ background: #a86da0; }
+.color-7ddc91{ background: #7ddc91; }
+.color-da4a4a{ background: #da4a4a; }
+.color-ffd883{ background: #ffd883; }
+.color-ffffff{ background: #ffffff; }
+.color-c8ddf3{ background: #c8ddf3; }
+.color-d9c6db{ background: #d9c6db; }
+.color-c0e39e{ background: #c0e39e; }
+.color-f2cece{ background: #f2cece; }
+.color-f5ecd5{ background: #f5ecd5; }
+
+.color-000000{ background: #000000; }
+.color-353232{ background: #353232; }
+.color-676262{ background: #676262; }
+.color-787373{ background: #787373; }
+.color-aba7a7{ background: #aba7a7; }
+.color-d3cbcb{ background: #d3cbcb; }
+.color-e6e6e6{ background: #e6e6e6; }
+.color-f5f5f5{ background: #f5f5f5; }
+.color-ffffff{ background: #ffffff; }
+
+@media only screen and (max-width: 1200px) {
+    .container {
+        margin: 2.5% auto 0;
+        width: 965px;
+    }
+    .btn-display {
+        width: 965px;
+        margin: 0 auto;
+        height: 22vh;
+    }
+    .btn-controls-display {
+        height: 35vh;
+        margin: 2.5% auto;
+        width: 965px;
+    }
+    h2 {
+        font-size: 1.5rem;
+    }
+    h3 {
+        font-size: 1.15rem;
+    }
+    .hover-switch {
+        width: 20%;
+    }
+    p.apply-on-hover {
+        font-size: 0.65rem;
+    }
+    .sliders > label {
+        font-size: 1.15rem;
+    }
+    .left-section, .right-section {
+        margin-left: 8%;
+    }
+    .background-color, .text-color, .border-color {
+        height: 40px;
+        width: 65px;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .container {
+        width: 100%;
+    }
+    .btn-display {
+        width: 750px;
+        height: 18vh;
+    }
+    .btn-controls-display {
+        height: 45vh;
+        margin: 2.5% auto;
+        width: 760px;
+    }
+    .left-col, .right-col {
+        float: inherit;
+        width: 100%;
+    }
+    .left-section {
+        margin-left: 0;
+    }
+    .background-color, .text-color, .border-color {
+        height: 45px;
+        width: 110px;
+    }
+    .sliders > label {
+        font-size: 1rem;
+    }
+    .font-family-value, .text-content-value, .button-class-value {
+        font-size: 0.9rem;
+    }
+    .sliders > label {
+        font-size: 1rem;
+    }
+    .get-code-btn {
+        font-size: 1rem;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .btn-display {
+        width: 640px;
+        height: 12vh;
+    }
+    .btn-controls-display {
+        width: 640px;
+    }
+    h2 {
+        font-size: 1.25rem;
+    }
+    h3 {
+        font-size: 0.9rem;
+    }
+    .left-col, .right-col {
+        float: left;
+        width: 100%;
+    }
+    .right-section {
+        float: right;
+    }
+    .colors-headline {
+        float: left;
+        width: 70%;
+    }
+    .hover-switch {
+        width: 30%;
+    }
+    .background-color, .text-color, .border-color {
+        width: 95px;
+    }
+    .input-fields {
+        float: initial;
+        width: 90%;
+        margin-left: 0 !important;
+        margin: 0 auto !important;
+    }
+    .drop-shadow {
+        margin-top: 10px;
+    }
+    .last-tune {
+        margin-top: 15px;
+    }
+    label.text-content-input {
+        margin-left: 12px;
+    }
+    .mb-2 {
+        margin-bottom: 1rem !important;
+    }
+}
+
+@media only screen and (max-width: 670px) {
+    .btn-display {
+        width: 450px;
+        height: 12vh;
+    }
+    .btn-controls-display {
+        width: 450px;
+    }
+    .background-color, .text-color, .border-color {
+        width: 60px;
+    }
+    .hover-switch {
+        margin-top: 15px;
+    }
+    .sliders {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        float: initial;
+        margin-left: 0 !important;
+        margin-top: 0;
+    }
+    .sliders > label {
+        font-size: 1rem;
+        margin-bottom: 4.5%;
+    }
+    .fine-tune {
+        width: 100%;
+        float: inherit;
+    }
+    select.font-menu {
+        width: 94%;
+    }
+    .drop-shadow {
+        margin-top: 8%;
+    }
+    .last-tune {
+        margin-top: 0px;
+    }
+    .clearfix.mb-2 {
+        margin-bottom: 0 !important;
+    }
+}
+
+@media only screen and (max-width: 518px) {
+    .btn-display {
+        width: 320px;
+        height: 10vh;
+    }
+    .btn-controls-display {
+        width: 320px;
+    }
+    .colors-headline {
+        width: 100%;
+    }
+    .hover-switch {
+        width: 100%;
+        margin-top: 10px;
+    }
+    .background-color, .text-color, .border-color {
+        width: 43px;
+    }
+    .hex-value label {
+        display: block;
+        font-size: .8rem;
+        text-align: left;
+        width: 100%;
+        padding-top: 6px;
+    }
+    .hex-value label {
+        display: block;
+        font-size: .8rem;
+        text-align: center;
+        width: 100%;
+    }
+    .hide-on-mobile {
+        display: none;
+    }
+    .get-code-btn {
+        width: 50%;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    h1 {
+        margin-top: 15px;
+        font-size: 1rem;
+    }
+    .btn-display {
+        background-size: 175% 175%;
+        width: 100%;
+        height: 14vh;
+    }
+    .btn-controls-display {
+        width: 100%;
+        height: 60vh;
+    }
+    .scroll-display  {
+        width: 35%;
+        top: 0;
+        opacity: 0.85;
+    }
+    .btn-code-display {
+        margin-top: 20px;
+        margin-bottom: 15px;
+    }
+}
